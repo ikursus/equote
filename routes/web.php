@@ -16,9 +16,10 @@ Route::get('/dashboard', function () {
   return view('template_dashboard');
 });
 
-Route::get('/senarai-users', function () {
-  return view('template_users_list');
-});
+Route::get('/senarai-users', 'UsersController@index');
+Route::get('/tambah-user', 'UsersController@create');
+
+
 
 Route::get('/senarai-produk', function () {
   return view('template_products_list');
