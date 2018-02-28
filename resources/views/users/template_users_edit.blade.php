@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah User</div>
+                <div class="card-header">Senarai Users</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Sila isikan borang dibawah untuk daftar user baru
+                    <p><a href="/tambah-user" class="btn btn-primary">Tambah User</a></p>
+                    <button type="button" class="btn btn-danger">Delete User</button>
+                    <p>Rekod Senarai Users</p>
                 </div>
             </div>
         </div>

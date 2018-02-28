@@ -13,9 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <p><a href="/users/new" class="btn btn-primary">Tambah User</a></p>
-                    <button type="button" class="btn btn-danger">Delete User</button>
-                    <p>Rekod Senarai Users</p>
+
+                    Rekod Senarai Produk
                 </div>
             </div>
         </div>

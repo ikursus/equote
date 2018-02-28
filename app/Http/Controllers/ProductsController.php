@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-      return view('users/template_users_list');
+        return view('products/template_products_list');
     }
 
     /**
@@ -23,7 +23,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users/template_users_add');
+        return view('products/template_products_add');
     }
 
     /**
@@ -34,11 +34,11 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-      // Dapatkan semua rekod daripada borang
-      $data = $request->all();
+        // Dapatkan semua rekod daripada borang
+        $data = $request->all();
 
-      // Beri response papar data
-      return $data;
+        // Beri response papar data
+        return $data;
     }
 
     /**
@@ -60,7 +60,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('users/template_users_edit');
+          return view('products/template_products_edit');
     }
 
     /**

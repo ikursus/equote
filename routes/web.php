@@ -12,19 +12,20 @@ Route::get('/hubungi', function () {
   return view('template_hubungi');
 });
 
-Route::get('/dashboard', function () {
-  return view('template_dashboard');
-});
+# Bahagian dashboard
+Route::get('/dashboard', 'DashboardController@admin');
 
-Route::get('/senarai-users', 'UsersController@index');
-Route::get('/tambah-user', 'UsersController@create');
+# Bahagian Users
+Route::get('/users', 'UsersController@index');
+# Route papar borang tambah user
+Route::get('/users/new', 'UsersController@create');
+# Route terima data dari borang tambah user
+Route::post('/users/new', 'UsersController@store');
 
 
+Route::get('/users/{id}/edit', 'UsersController@edit');
 
-Route::get('/senarai-produk', function () {
-  return view('template_products_list');
-});
-
-Route::get('/senarai-quotations', function () {
-  return view('template_quotations_list');
-});
+# Bahagian Produk
+Route::get('/produk', 'ProductsController@index');
+Route::get('/produk/baru', 'ProductsController@create');
+Route::get('/produk/{id}/edit', 'ProductsController@edit');

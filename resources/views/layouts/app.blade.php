@@ -56,9 +56,9 @@
                             </li>
                         @endguest
                         <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
-                        <li><a class="nav-link" href="/senarai-users">Users</a></li>
-                        <li><a class="nav-link" href="/senarai-produk">Products</a></li>
-                        <li><a class="nav-link" href="/senarai-quotations">Quotations</a></li>
+                        <li><a class="nav-link" href="/users">Users</a></li>
+                        <li><a class="nav-link" href="/produk">Products</a></li>
+                        <li><a class="nav-link" href="/quotations">Quotations</a></li>
                         <li><a class="nav-link" href="/hubungi">Hubungi</a></li>
                     </ul>
                 </div>
