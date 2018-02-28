@@ -14,9 +14,10 @@ class UsersController extends Controller
      */
     public function index()
     {
+      // Dapatkan senarai SEMUA users dari table user
       $senarai_users = DB::table('users')->get();
 
-
+      // Beri response papar template dan senarai users
       return view('users/template_users_list', compact('senarai_users'));
     }
 
@@ -78,8 +79,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+      // Dapatkan rekod user berdasarkan ID user
         $user = DB::table('users')->where('id', '=', $id)->first();
-
+        // Paparkan rekod user yang terpilih pada borang edit user
         return view('users/template_users_edit', compact('user') );
     }
 
