@@ -5,18 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Borang Edit User ID: {{ $id }}</div>
+                <div class="card-header">Borang Edit User ID: {{ $user->id }}</div>
 
                 <div class="card-body">
 
                   <form method="POST" action="">
                       @csrf
 
+                      {{-- Comment Laravel --}}
+
+                      <input type="hidden" name="_method" value="PATCH">
+
                       <div class="form-group row">
                           <label for="nama" class="col-sm-4 col-form-label text-md-right">Nama</label>
 
                           <div class="col-md-6">
-                              <input id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autofocus>
+                              <input id="nama" type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" value="{{ $user->nama }}" required autofocus>
                           </div>
                       </div>
 
@@ -24,7 +28,7 @@
                           <label for="username" class="col-sm-4 col-form-label text-md-right">Username</label>
 
                           <div class="col-md-6">
-                              <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                              <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
                           </div>
                       </div>
 
@@ -32,7 +36,7 @@
                           <label for="email" class="col-sm-4 col-form-label text-md-right">E-Mail Address</label>
 
                           <div class="col-md-6">
-                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
                           </div>
                       </div>
 

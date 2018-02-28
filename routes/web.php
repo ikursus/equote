@@ -26,9 +26,6 @@ Route::get('/users/{id}/edit', 'UsersController@edit');
 # Route terima data dari borang edit user
 Route::patch('/users/{id}/edit', 'UsersController@update');
 
-
-Route::get('/users/{id}/edit', 'UsersController@edit');
-
 # Bahagian Produk
 Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/baru', 'ProductsController@create');

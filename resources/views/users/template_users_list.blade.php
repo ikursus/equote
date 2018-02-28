@@ -21,33 +21,19 @@
                           <th>TINDAKAN</th>
                         </tr>
                       </thead>
+
+                      @foreach( $senarai_users as $user )
                       <tr>
-                        <td>1</td>
-                        <td>alibaba</td>
-                        <td>Ali Baba</td>
-                        <td>ali@baba.com</td>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->username }}</td>
+                        <td>{{ $user->nama }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>
-                          <a href="/users/1/edit" class="btn btn-xs btn-info">Edit</a>
+                          <a href="/users/{{ $user->id }}/edit" class="btn btn-xs btn-info">Edit</a>
                         </td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>ahmadalbab</td>
-                        <td>Ahmad Albab</td>
-                        <td>ahmad@albab.com</td>
-                        <td>
-                          <a href="/users/2/edit" class="btn btn-xs btn-info">Edit</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>upinipin</td>
-                        <td>Upin Ipin</td>
-                        <td>upin@ipin.com</td>
-                        <td>
-                          <a href="/users/3/edit" class="btn btn-xs btn-info">Edit</a>
-                        </td>
-                      </tr>
+                      @endforeach
+
                     </table>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class UsersController extends Controller
 {
@@ -13,7 +14,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-      return view('users/template_users_list');
+      $senarai_users = DB::table('users')->get();
+
+
+      return view('users/template_users_list', compact('senarai_users'));
     }
 
     /**
@@ -34,9 +38,23 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-      // Dapatkan semua rekod daripada borang
-      $data = $request->all();
+      // Validate data yang dikirim daripada Borang
+      // $this->validate($request, $array);
+      $request->validate([
+        'nama' => 'required|min:3',
+        'email' => 'required|email',
+        'username' => 'required|min:3|alpha_num',
+        'password' => 'required|min:5'
+      ]);
 
+      // Dapatkan semua rekod daripada borang
+      // $data = $request->all();
+      // Dapatkan 1 rekod dari field yang diperlukan
+      // $data = $request->input('nama');
+      // Dapatkan beberapa rekod yang diperlukan
+      // $data = $request->only('nama', 'email');
+      // Dapatkan semua rekod kecuali yang dinyatakan
+      $data = $request->except('nama', 'email');
       // Beri response papar data
       return $data;
     }
@@ -60,7 +78,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('users/template_users_edit', compact('id') );
+        $user = DB::table('users')->where('id', '=', $id)->first();
+
+        return view('users/template_users_edit', compact('user') );
     }
 
     /**
@@ -72,7 +92,11 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // Dapatkan semua rekod daripada borang
+      $data = $request->all();
+
+      // Beri response papar data
+      return $data;
     }
 
     /**
