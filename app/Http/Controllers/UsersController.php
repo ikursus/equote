@@ -60,7 +60,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('users/template_users_edit');
+        return view('users/template_users_edit', compact('id') );
     }
 
     /**

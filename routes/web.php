@@ -21,6 +21,10 @@ Route::get('/users', 'UsersController@index');
 Route::get('/users/new', 'UsersController@create');
 # Route terima data dari borang tambah user
 Route::post('/users/new', 'UsersController@store');
+# Route papar borang edit user
+Route::get('/users/{id}/edit', 'UsersController@edit');
+# Route terima data dari borang edit user
+Route::patch('/users/{id}/edit', 'UsersController@update');
 
 
 Route::get('/users/{id}/edit', 'UsersController@edit');
