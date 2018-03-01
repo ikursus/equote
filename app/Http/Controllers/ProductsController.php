@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ProductsController extends Controller
 {
@@ -13,7 +14,9 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('products/template_products_list');
+        $senarai_produk = DB::table('products')->get();
+
+        return view('products/template_products_list', compact('senarai_produk'));
     }
 
     /**

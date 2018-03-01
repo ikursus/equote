@@ -9,6 +9,8 @@
 
                 <div class="card-body">
 
+                  @include('alerts')
+
                     <p><a href="/users/new" class="btn btn-primary">Tambah User</a></p>
 
                     <table class="table">
@@ -35,6 +37,8 @@
                       @endforeach
 
                     </table>
+
+                    {{ $senarai_users->links() }}
                 </div>
             </div>
         </div>
