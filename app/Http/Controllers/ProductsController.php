@@ -42,23 +42,18 @@ class ProductsController extends Controller
       $request->validate([
         'nama' => 'required|min:3',
         'kos' => 'required|numeric',
-        'kos' => 'required|numeric',
+        'margin' => 'required|numeric',
         'active' => 'required|in:1,2'
       ]);
 
       // Dapatkan semua rekod daripada borang
-      // $data = $request->all();
-      // Dapatkan 1 rekod dari field yang diperlukan
-      // $data = $request->input('nama');
-      // Dapatkan beberapa rekod yang diperlukan
-      $data = $request->only('nama', 'username', 'email', 'telefon');
-      $data['password'] = bcrypt($request->input('password'));
-      // Dapatkan semua rekod kecuali yang dinyatakan
-      // $data = $request->except('nama', 'email');
-      // Simpan $data ke dalam database
-      DB::table('users')->insert($data);
-      // Bagi response kembali ke halaman senarai users beserta session mesej berjaya
-      return redirect('/users')->with('alert-success', 'Rekod berjaya ditambah!');
+      $data = $request->all();
+
+      // Simpan rekod ke dalam database
+      Product::create($data);
+
+      // Bagi response kembali ke halaman senarai produk beserta session mesej berjaya
+      return redirect('/produk')->with('alert-success', 'Rekod berjaya ditambah!');
     }
 
     /**
@@ -80,7 +75,11 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-          return view('products/template_products_edit');
+      // Dapatkan rekod produk berdasarkan ID produk
+      $product = Product::find($id);
+
+      // Paparkan rekod product yang terpilih pada borang edit product
+      return view('products/template_products_edit', compact('product'));
     }
 
     /**

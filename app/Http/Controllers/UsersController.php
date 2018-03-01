@@ -86,7 +86,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-      // Dapatkan rekod user berdasarkan ID user
+        // Dapatkan rekod user berdasarkan ID user
         $user = DB::table('users')
         ->where('id', '=', $id)
         ->first();
