@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use App\Product;
 
 class ProductsController extends Controller
 {
@@ -14,7 +14,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $senarai_produk = DB::table('products')->get();
+        $senarai_produk = Product::all();
 
         return view('products/template_products_list', compact('senarai_produk'));
     }
