@@ -91,7 +91,22 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // Validate data yang dikirim daripada Borang
+      $request->validate([
+        'nama' => 'required|min:3',
+        'kos' => 'required|numeric',
+        'margin' => 'required|numeric'
+      ]);
+
+      // Dapatkan semua rekod daripada borang
+      $data = $request->all();
+
+      // Update rekod ke table products
+      $product = Product::find($id);
+      $product->update($data);
+
+      // Bagi response kembali ke halaman sebelum beserta session mesej berjaya
+      return redirect()->back()->with('alert-success', 'Rekod berjaya dikemaskini.');
     }
 
     /**
@@ -102,6 +117,11 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // Dapatkan rekod product berdasarkan ID product
+      $product = Product::find($id);
+      $product->delete();
+
+      // Bagi response kembali ke halaman sebelum beserta session mesej berjaya
+      return redirect()->back()->with('alert-success', 'Rekod berjaya dihapuskan!');
     }
 }

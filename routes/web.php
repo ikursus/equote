@@ -33,3 +33,5 @@ Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/baru', 'ProductsController@create');
 Route::post('/produk/baru', 'ProductsController@store');
 Route::get('/produk/{id}/edit', 'ProductsController@edit');
+Route::patch('/produk/{id}/edit', 'ProductsController@update');
+Route::delete('/produk/{id}', 'ProductsController@destroy');

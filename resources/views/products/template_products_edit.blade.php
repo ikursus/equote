@@ -14,6 +14,8 @@
                   <form method="POST" action="">
                       @csrf
 
+                      <input type="hidden" name="_method" value="PATCH">
+
                       <div class="form-group row">
                           <label for="nama" class="col-sm-4 col-form-label text-md-right">Nama</label>
 
@@ -43,8 +45,8 @@
 
                           <div class="col-md-6">
                               <select name="active" class="form-control">
-                                <option value="1"{{ ($product->active == true) ? ' selected=selected' : false }}>AKTIF</option>
-                                <option value="0"{{ ($product->active == false) ? ' selected=selected' : false }}>TIDAK AKTIF</option>
+                                <option value="1"{{ ($product->active == true) ? ' selected=selected' : null }}>AKTIF</option>
+                                <option value="0"{{ ($product->active == false) ? ' selected=selected' : null }}>TIDAK AKTIF</option>
                               </select>
                           </div>
                       </div>
