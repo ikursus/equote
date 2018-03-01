@@ -105,7 +105,6 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
       // Validate data yang dikirim daripada Borang
-      // $this->validate($request, $array);
       $request->validate([
         'nama' => 'required|min:3',
         'email' => 'required|email',
@@ -124,6 +123,7 @@ class UsersController extends Controller
       DB::table('users')
       ->where('id', '=', $id)
       ->update($data);
+
       // Bagi response kembali ke halaman sebelum beserta session mesej berjaya
       return redirect()->back()->with('alert-success', 'Rekod berjaya dikemaskini!');
     }
@@ -136,6 +136,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Dapatkan rekod user berdasarkan ID user
+        $user = DB::table('users')
+        ->where('id', '=', $id)
+        ->delete();
+
+        // Bagi response kembali ke halaman sebelum beserta session mesej berjaya
+        return redirect()->back()->with('alert-success', 'Rekod berjaya dihapuskan!');
     }
 }

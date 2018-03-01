@@ -23,8 +23,10 @@ Route::get('/users/new', 'UsersController@create');
 Route::post('/users/new', 'UsersController@store');
 # Route papar borang edit user
 Route::get('/users/{id}/edit', 'UsersController@edit');
-# Route terima data dari borang edit user
+# Route terima data dari borang edit user dan update database
 Route::patch('/users/{id}/edit', 'UsersController@update');
+# Route untuk hapuskan user berdasarkan ID
+Route::delete('/users/{id}', 'UsersController@destroy');
 
 # Bahagian Produk
 Route::get('/produk', 'ProductsController@index');
