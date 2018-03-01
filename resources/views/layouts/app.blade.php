@@ -36,10 +36,16 @@
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                            <li><a class="nav-link" href="/hubungi">Hubungi</a></li>
                         @else
+                          <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                          <li><a class="nav-link" href="/users">Users</a></li>
+                          <li><a class="nav-link" href="/produk">Products</a></li>
+                          <li><a class="nav-link" href="/quotations">Quotations</a></li>
+                          <li><a class="nav-link" href="/hubungi">Hubungi</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->nama }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,11 +61,7 @@
                                 </div>
                             </li>
                         @endguest
-                        <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
-                        <li><a class="nav-link" href="/users">Users</a></li>
-                        <li><a class="nav-link" href="/produk">Products</a></li>
-                        <li><a class="nav-link" href="/quotations">Quotations</a></li>
-                        <li><a class="nav-link" href="/hubungi">Hubungi</a></li>
+
                     </ul>
                 </div>
             </div>

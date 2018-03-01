@@ -7,6 +7,12 @@ use App\Product;
 
 class ProductsController extends Controller
 {
+    // Protect (authorize)
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
