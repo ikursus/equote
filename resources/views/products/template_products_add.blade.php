@@ -26,7 +26,7 @@
                           <label for="kos" class="col-sm-4 col-form-label text-md-right">Kos</label>
 
                           <div class="col-md-6">
-                              <input id="kos" type="text" class="form-control{{ $errors->has('kos') ? ' is-invalid' : '' }}" name="username" value="{{ old('kos') }}" required autofocus>
+                              <input id="kos" type="text" class="form-control{{ $errors->has('kos') ? ' is-invalid' : '' }}" name="kos" value="{{ old('kos') }}" required autofocus>
                           </div>
                       </div>
 

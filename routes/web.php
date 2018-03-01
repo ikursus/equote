@@ -31,4 +31,5 @@ Route::delete('/users/{id}', 'UsersController@destroy');
 # Bahagian Produk
 Route::get('/produk', 'ProductsController@index');
 Route::get('/produk/baru', 'ProductsController@create');
+Route::post('/produk/baru', 'ProductsController@store');
 Route::get('/produk/{id}/edit', 'ProductsController@edit');
